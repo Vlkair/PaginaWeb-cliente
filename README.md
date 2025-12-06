@@ -2,6 +2,12 @@
 
 Página web profesional para empresa de construcción y arquitectura. Diseño moderno, responsivo y completamente personalizable.
 
+## 🌐 Ver en Vivo
+
+👉 **[Ver Sitio Web](https://vlkair.github.io/PaginaWeb-cliente/)**
+
+---
+
 ## 📋 Características
 
 - ✅ Diseño moderno y profesional
@@ -87,31 +93,40 @@ El archivo `js/main.js` incluye:
 - Botón "scroll to top"
 - Sistema de alertas
 
-## 🌐 Cómo Usar
+## 🚀 Publicar en GitHub Pages
+
+**📖 [Ver Guía Completa de GitHub Pages](GITHUB-PAGES-SETUP.md)**
+
+### Pasos rápidos:
+1. Ve a **Settings > Pages** en tu repositorio
+2. Selecciona branch `main` y carpeta `/ (root)`
+3. Guarda y espera 1-2 minutos
+4. Tu sitio estará en: `https://vlkair.github.io/PaginaWeb-cliente/`
+
+### Para actualizar tu sitio:
+```bash
+git add .
+git commit -m "Descripción de cambios"
+git push origin main
+```
+
+## 🌐 Desarrollo Local
 
 ### Método 1: Abrir Directamente
 1. Abre el archivo `index.html` en tu navegador
 2. La página se cargará lista para usar
 
-### Método 2: Servidor Local (Recomendado)
-Si tienes Python instalado:
-
-```bash
-# Python 3
-python -m http.server 8000
-
-# Luego abre: http://localhost:8000
-```
-
-Si tienes Node.js:
-```bash
-npx http-server
-```
-
-### Método 3: VS Code Live Server
+### Método 2: VS Code Live Server (Recomendado)
 1. Instala la extensión "Live Server" en VS Code
 2. Click derecho en `index.html`
 3. Selecciona "Open with Live Server"
+
+### Método 3: Servidor Local
+Si tienes Python:
+```bash
+python -m http.server 8000
+# Abre: http://localhost:8000
+```
 
 ## 🎯 Secciones de la Página
 
