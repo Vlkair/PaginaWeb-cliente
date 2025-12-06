@@ -212,8 +212,8 @@ ul {
    =================================== */
 .hero {
     height: 100vh;
-    background: linear-gradient(135deg, rgba(0, 78, 137, 0.9), rgba(255, 107, 53, 0.8)),
-                url('../images/hero-bg.jpg') center/cover no-repeat;
+    background: linear-gradient(135deg, rgba(0, 78, 137, 0.7), rgba(255, 107, 53, 0.6)),
+                url('../images/GVCONSTRUCCIONESSPA.png') center/cover no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
