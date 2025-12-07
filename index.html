@@ -103,11 +103,11 @@
                 <p>Conoce algunos de nuestros trabajos más recientes</p>
             </div>
             <div class="projects-grid">
-                <div class="project-card" data-category="residencial">
-                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop" alt="Casa Moderna" class="project-image">
+                <div class="project-card" data-category="residencial" data-gallery="proyecto1" onclick="openGallery(0)">
+                    <img src="images/paneofinal.jpg" alt="Proyecto Residencial" class="project-image">
                     <div class="project-overlay">
-                        <h3>Villa Moderna</h3>
-                        <p>Residencial • 450m² • 2023</p>
+                        <h3>Proyecto Residencial Completo</h3>
+                        <p>Residencial • Ver Galería 📸</p>
                     </div>
                 </div>
                 <div class="project-card" data-category="comercial">
@@ -289,6 +289,19 @@
             </div>
         </div>
     </footer>
+
+    <!-- Modal Lightbox para Galería -->
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+        <div class="lightbox-content">
+            <button class="lightbox-prev" onclick="changeImage(-1)">❮</button>
+            <img id="lightbox-image" src="" alt="Imagen del proyecto">
+            <button class="lightbox-next" onclick="changeImage(1)">❯</button>
+        </div>
+        <div class="lightbox-counter">
+            <span id="image-counter"></span>
+        </div>
+    </div>
 
     <!-- Botón Flotante de WhatsApp -->
     <a href="https://wa.me/56968035766?text=Hola%2C%20me%20gustaría%20solicitar%20información%20sobre%20sus%20servicios" 

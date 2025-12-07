@@ -307,4 +307,133 @@ scrollTopBtn.addEventListener('mouseleave', () => {
     scrollTopBtn.style.transform = 'scale(1)';
 });
 
+// ===================================
+// Lightbox / Galería de Imágenes
+// ===================================
+const galleryImages = [
+    'images/paneofinal.jpg',
+    'images/paneo.jpg',
+    'images/paneo2.jpg',
+    'images/paneo3.jpg',
+    'images/paneo4.jpg',
+    'images/paneo5.jpg',
+    'images/paneo6.jpg',
+    'images/paneo7.jpg',
+    'images/paneodelado.jpg',
+    'images/paneofachada.jpg',
+    'images/paneoInterno.jpg',
+    'images/paneoventanas.jpg',
+    'images/panoramico.jpg',
+    'images/inicioDeExcavación.jpg',
+    'images/marcacionDeTerreno.jpg',
+    'images/enconfrado.jpg',
+    'images/encofradoCadenasMuro.jpg',
+    'images/encofradoDeColumnas.jpg',
+    'images/InicioEncofradoColumnas.jpg',
+    'images/LevantamientoDeMuros.jpg',
+    'images/desencofrado.jpg',
+    'images/desencofradoCompleto.jpg',
+    'images/inicioDeDesencofrado.jpg',
+    'images/armazónTecho.jpg',
+    'images/armazónTechoCompletado.jpg',
+    'images/armazonDeSobrebase.jpg',
+    'images/techo.jpg',
+    'images/techoAmedias.jpg',
+    'images/techoCompletadoarmazon.jpg',
+    'images/TechoTerminado.jpg',
+    'images/instalaciondetubosdeagua.jpg',
+    'images/conexiondeagua.jpg',
+    'images/conexiondeagua1.jpg',
+    'images/conexiondeagua2.jpg',
+    'images/conexionDeAguaa.jpg',
+    'images/instalandoTuberiasDeAgua.jpg',
+    'images/isntalacionDEtuberiasDEagua.jpg',
+    'images/bifurcación.jpg',
+    'images/tarrajeo.jpg',
+    'images/tarrajeo2.jpg',
+    'images/tarrajeoacabado.jpg',
+    'images/tarrajeoCieloraso.jpg',
+    'images/tarrajeocielorasso.jpg',
+    'images/tarrajeoInferior.jpg',
+    'images/tarrajeoINFERIOR2.jpg',
+    'images/tarrajeoTerminado.jpg',
+    'images/tarrajeoVentana.jpg',
+    'images/cieloOTROmaterial.jpg',
+    'images/fotoCuartoInterior.jpg',
+    'images/arena.jpg',
+    'images/dueños.jpg',
+    'images/maestro.jpg',
+    'images/maestrotoma2.jpg',
+    'images/obreros.jpg',
+    'images/plano.jpg',
+    'images/fotoimprovisada.jpg'
+];
+
+let currentImageIndex = 0;
+
+function openGallery(index) {
+    currentImageIndex = index;
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightbox-image');
+    
+    lightboxImage.src = galleryImages[currentImageIndex];
+    lightbox.classList.add('active');
+    updateCounter();
+    
+    // Prevenir scroll del body cuando el lightbox está abierto
+    document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+    const lightbox = document.getElementById('lightbox');
+    lightbox.classList.remove('active');
+    document.body.style.overflow = 'auto';
+}
+
+function changeImage(direction) {
+    currentImageIndex += direction;
+    
+    // Loop: volver al inicio o al final
+    if (currentImageIndex >= galleryImages.length) {
+        currentImageIndex = 0;
+    } else if (currentImageIndex < 0) {
+        currentImageIndex = galleryImages.length - 1;
+    }
+    
+    const lightboxImage = document.getElementById('lightbox-image');
+    lightboxImage.style.opacity = '0';
+    
+    setTimeout(() => {
+        lightboxImage.src = galleryImages[currentImageIndex];
+        lightboxImage.style.opacity = '1';
+        updateCounter();
+    }, 150);
+}
+
+function updateCounter() {
+    const counter = document.getElementById('image-counter');
+    counter.textContent = `${currentImageIndex + 1} / ${galleryImages.length}`;
+}
+
+// Cerrar lightbox con tecla ESC
+document.addEventListener('keydown', (e) => {
+    const lightbox = document.getElementById('lightbox');
+    if (lightbox.classList.contains('active')) {
+        if (e.key === 'Escape') {
+            closeLightbox();
+        } else if (e.key === 'ArrowRight') {
+            changeImage(1);
+        } else if (e.key === 'ArrowLeft') {
+            changeImage(-1);
+        }
+    }
+});
+
+// Cerrar lightbox al hacer clic fuera de la imagen
+document.getElementById('lightbox')?.addEventListener('click', (e) => {
+    if (e.target.id === 'lightbox') {
+        closeLightbox();
+    }
+});
+
 console.log('🚀 Website loaded successfully!');
